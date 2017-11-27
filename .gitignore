@@ -1,0 +1,27 @@
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore everything in the uploads folder...
+main/daily_log/uploads/*
+
+# ... except the tmp folder...
+main/daily_log/uploads/tmp
+
+# ... but ignore everything IN the tmp folder
+main/daily_log/uploads/tmp/*
+
+#ignore personal notes
+notes
+
+# -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+ 
+# track these files, if they exist
+!.gitignore
