@@ -1,0 +1,217 @@
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+p {
+    font-size: 14px;
+}
+
+#wrap {
+    width:100%;
+    margin:0 auto;
+    background:#ffffff;
+}
+
+/*Style for the Navigation Bar*/
+#navigation {
+    margin:auto;
+    height:50px;
+    padding-bottom:4px;
+    background-color: #FFFFFF;
+    width:100%;
+    text-align:center;
+    z-index: 2;
+}
+
+#navigation h1 {
+  margin-top:2px;
+  margin-bottom:2px;
+  font-weight:bold;
+  color:#000000;
+  font-size:16px;
+    z-index: 2;
+}
+
+#navigation li {
+    float: left;
+    position: relative;
+    width: 10em;
+    z-index: 2;
+}
+
+#navigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float:left;
+    z-index: 2
+}
+
+#navigation ul ul {
+    display: none
+}
+
+#navigation ul li:hover > ul {
+    display: block;
+}
+
+#navigation ul li ul li:hover{
+    font-style: italic;
+}
+    
+#navigation li a:link, #navigation li a:visited  {
+ font-size: 90%;
+ display: block;
+ padding: 0.4em 0 0.4em 0.5em;
+ border-left: 12px solid #AAAAAA;
+ border-right: 1px solid #AAAAAA;
+ border-top: 1px solid #AAAAAA;
+ border-bottom: 1px solid #AAAAAA;
+ background-color: #EEEEEE;
+ color: #000000;
+ text-decoration: none;
+ height:1%;
+}
+
+/*Style for the Daily Log Post Display*/
+#post_display table{
+    border: solid 1px gray;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#post_display tr, td {
+    border: solid 1px gray;
+}
+
+#post_display td:nth-child(1) {
+    width: 5%;
+    text-align: center;
+}
+
+#post_display td:nth-child(2) {
+    width: 15%;
+    text-align: center;
+}
+
+#post_display td:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
+
+#post_display td:nth-child(4) {
+    width: 70%;
+}
+
+#post_display tr:nth-child(1){
+    font-weight: bold;
+}
+
+#post_display tr:nth-child(even){
+    background-color: #CC9999;
+}
+
+#post_display tr:nth-child(odd){
+    background-color: #9999CC;
+}
+
+/*Style for the Daily Log Post Input Form*/
+
+#post_form textarea{
+    width: 85%;
+}
+
+#info_input {
+    margin-left: 15%;
+    margin-right: 5%;
+}
+
+#info_input table{
+    border: 0;
+    width: 100%;
+}
+
+#info_input td, tr{
+    border: 0;
+}
+
+#calendar_days td{
+    width: 150px;
+}
+
+#calendar td{
+    width: 150px;
+    height: 150px;
+}
+
+#cal_data {
+    width: 148px;
+    height: 132px;
+    border: solid 1px black;
+    background-color: #D4D4D4;
+    font-size: 14px;
+}
+
+#cal_data form{
+    margin: 0;
+    padding: 2;
+}
+
+#cal_data a{
+    float: right;
+    margin-right: 20px;
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#cal_data a:hover{
+    float: right;
+    margin-right: 20px;
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#cal_data button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: red;
+    font-size: 16;
+    float: right;
+    cursor: pointer;
+    font-family: "Times New Roman";
+}
+
+#cal_data button:hover{
+    color: blue;
+}
+    
+.title{
+    display: inline;    
+    position: relative;
+    bottom: 10px;
+    z-index: 1;
+}
+
+#daylog_title input{
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    display: inline-block;
+}
+
+#daylog_title form{
+    border: none;
+    padding: 0;
+    display: block;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+/* Style for the Admin. Tab */
+.tab { border-collapse:collapse; }

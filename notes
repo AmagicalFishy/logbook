@@ -1,0 +1,50 @@
+- Logbook Password: Line 11 of "info.inc"
+
+
+WHAT DOES THE INITIAL SETUP SCRIPT NEED TO DO?
+- Ensure L.A.M.P is installed
+- Ask to install LAMP if it isn't
+(User can install LAMP themselves)
+
+- Spit out terminal commands for initial setup after LAMP installation (i.e. - "sudo mv ../logbook /var/html/www/")
+- Create example databases
+- Prompt user to go to admin tab and set things up
+
+- Create MYSQL user and database, give user permissions
+- Enable php.ini plugins
+- Change permissions of upload folder
+- Create appropriate upload folders
+- Bootstrap CS: http://bootstrapdocs.com/v3.2.0/docs/examples/theme/
+
+WHAT DOES THE ADMIN TAB NEED TO DO?
+- Add/remove logbooks
+- Change logbook titles
+- Change/set title
+- Change/set password
+- Change/set homepage message and picture
+
+- Restore logbooks from backups
+- Schedule backups
+
+- Maybe users?
+
+
+one major thing that you should change: always, when loading a file via require of include, you should use the absolute path. You can get the "current file absolute location" using __DIR__ constant
+  
+it ends up looking something like: include __DIR__ . '/../some/folder/file.php';
+
+tereško
+Fabor
+
+tereško -- when you finish the migration, I will explain, how you can turn it into http://your.site/log/3 (in reference to log GET variables)
+
+------------
+STEPS:
+- Install LAMP:
+    Install: apache2, mysql-server, php, libapache-mod-php, sqlite, php-sqlite3, php7.0-mysql
+    Run: sudo /etc/init.d/apache2 restart
+    Go to localhost
+
+- Place 'logbook' in /var/www/html
+- Change 'php.ini' to show errors, then 'systemctl restart apache2'
+- Uncomment 'php.ini' lines 890, 894, 898, 907, 908 to enable plugins
