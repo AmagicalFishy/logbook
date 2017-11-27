@@ -4,8 +4,6 @@
 
 # ignore log files and databases
 *.log
-*.sql
-*.sqlite
 
 # ignore everything in the uploads folder...
 main/daily_log/uploads/*
