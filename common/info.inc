@@ -3,16 +3,16 @@
 if(!isset($_SESSION)) { 
     session_start(); 
 } 
+
 date_default_timezone_set("America/New_York");
 $dbinfo = "mysql: host=127.0.0.1;dbname=logbook";
 $username = "logbook";
 $password = "logbook";
 
-// If the logbook password isn't set, redirect to password screen
-if ($_SESSION["password"] != "@lab-log@"){
-	header("Location: /logbook/common/login.php");
-
-echo "<link rel='icon' type='image/ico' href='/logbook/favicon.ico'>";
+// If the logbook password isn't authenticated, redirect to password screen
+if (!isset($_SESSION['authenticated'])) {
+    header("Location: /logbook/common/login.php");
+    echo "<link rel='icon' type='image/ico' href='/logbook/favicon.ico'>";
 }
 
 // Allows proper back-button function

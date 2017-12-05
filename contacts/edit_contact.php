@@ -3,8 +3,8 @@
 <title>Edit Contact</title>
 <link rel="stylesheet" href="../common/style.css">
 <?php
-include "../common/navigation.html";
-include "../common/info.inc";
+#include "../common/navigation.html";
+#include "../common/info.inc";
 ?>
 </div>
 </head>
