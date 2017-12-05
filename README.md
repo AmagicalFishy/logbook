@@ -16,7 +16,6 @@ Must have LAMP (Linux, Apache2, MySQL [MariaDB], PHP) installed and some extra p
 
 ```
 sudo apt-get install apache2 mysql-server php libapache-mod-php sqlite php-sqlite3 php7.0-mysql
-
 ```
 When installing MySQL/MariaDB, you'll probably be asked to create a root user for the database. Make sure to remember whatever password you set up.
 
@@ -24,7 +23,9 @@ When installing MySQL/MariaDB, you'll probably be asked to create a root user fo
 First, change the ``php.ini`` file to uncomment the lines:
 
 ``extension=pdo_mysql.so``
+
 ``extension=pdo_sqlite.so``
+
 ``extension=mysqli.so``
 
 On Ubuntu, this is located in ``/etc/php/7.0/apache2/php.ini``
@@ -39,7 +40,9 @@ to...
 display_errors = On
 ```
 Now restart Apache2: ``sudo systemctl restart apache2`` or ``sudo systemctl restart http``
+
 Start SQL: ``sudo systemctl start mariadb.service`` or ``sudo systemctl start mysql.serivce``
+
 Enable SQL: ``sudo systemctl enable mariadb.service`` or ``sudo systemctl enable mysql.service``
 
 Now, go into ``/var/www/html/logbook/setup`` and run the SQL file (this sets up the appropriate databases for the logbook). The way to do this is:
