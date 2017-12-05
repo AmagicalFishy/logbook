@@ -17,6 +17,7 @@ switch ((isset($_GET['page']) ? $_GET['page'] : 'home')) {
     case 'add_contact':     require __DIR__ . '/contacts/action_process.php'; break;
     case 'edit_contact':    require __DIR__ . '/contacts/edit_contact.php'; break;
     case 'contact_action':  require __DIR__ . '/contacts/edit_process.php'; break;
+    case 'calendar':        require __DIR__ . '/main/logbook_frontpage.php'; break;
     case 'admin':           require __DIR__ . '/admin/admintab.php'; break;
     case 'adminfunctions':  require __DIR__ . '/admin/adminfunctions.php'; break; 
     case 'logbook_info':    require __DIR__ . '/admin/logbook_info.php'; break;

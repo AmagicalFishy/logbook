@@ -1,4 +1,4 @@
-<?php include "../common/info.inc"; ?>
+<?#php include "../common/info.inc"; ?>
 
 <html>
 <head>
@@ -7,18 +7,18 @@
 <link rel="icon" href="/logbook/favicon.ico">
 
 <?php
-include "../common/navigation.php";
+#include "../common/navigation.php";
 
 // If the month is set in the URL, set the month index to w/e month it is
-if (ISSET($_GET["month"])){
+if (ISSET($_GET["month"]) && is_numeric($_GET["month"])) {
     $month_index = $_GET["month"];
 }
 else{
-    $month_index = 0;
+    header('Location: /logbook/index.php?page=calendar&month=0');
 }
 
 // Formats the month correctly
-$month = strtotime(date("M-01-Y") . "+".$month_index." month");
+$month = strtotime(date("Y-M-01") . "+" . $month_index . " month");
 ?>
 
 </head>
@@ -27,9 +27,11 @@ $month = strtotime(date("M-01-Y") . "+".$month_index." month");
 <br>
 <center>
 <font size=6>
-<a href=<?php $month_index = $month_index - 1; echo "?month=".$month_index; ?>><img src="arrow_left.gif" ></a> 
+<a href=<?php $month_index = $month_index - 1; echo "?page=calendar&month=".$month_index; ?>>
+    <img src="/logbook/common/images/arrow_left.gif" ></a> 
 <div class="title">Logbook Calendar for <?php echo date("F Y",$month); ?> </div>
-<a href=<?php $month_index = $month_index + 2; echo "?month=".$month_index; ?>><img src="arrow_right.gif"></a>
+<a href=<?php $month_index = $month_index + 2; echo "?page=calendar&month=".$month_index; ?>>
+    <img src="/logbook/common/images/arrow_right.gif"></a>
 </font>
 <?php
 // Back to Current Month Link
@@ -80,9 +82,9 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
 <?php
 
-// Creates the little calendar days
+// Creates the little calendar blocks
 $days_in_month = date("t", $month);
-$first_day = date("w", strtotime(date("F-01-Y", $month)));
+$first_day = date('w', $month);
 
 for ($i = 1; $i <= $first_day; ++$i){
         echo    "<td style='border:0'>";
@@ -122,9 +124,11 @@ for ($i = $first_day; $i <= $days_in_month + $first_day - 1; ++$i){
 </div>
 <br><br>
 <font size="6">
-<a href=<?php $month_index = $month_index - 1; echo "?month=".$month_index; ?>><img src="arrow_left.gif" ></a> 
+<a href=<?php $month_index = $month_index - 2; echo "?page=calendar&month=".$month_index; ?>>
+    <img src="/logbook/common/images/arrow_left.gif" ></a> 
 <div class="title">Logbook Calendar for <?php echo date("F Y",$month); ?> </div>
-<a href=<?php $month_index = $_GET["month"] + 1; echo "?month=".$month_index; ?>><img src="arrow_right.gif"></a><br>
+<a href=<?php $month_index = $_GET["month"] + 1; echo "?page=calendar&month=".$month_index; ?>>
+    <img src="/logbook/common/images/arrow_right.gif"></a><br>
 </font>
 </center>
 <br>

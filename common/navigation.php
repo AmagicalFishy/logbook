@@ -6,7 +6,8 @@
 <ul>
 <li><a href='/logbook/index.php?page=home'>Home</a>
 <li><a href='/logbook/index.php?page=contacts'>Contacts</a>
-<li><a href="/logbook/main/logbook_frontpage.php?month=0">Logs</a>
+<!-- <li><a href="/logbook/main/logbook_frontpage.php?month=0">Logs</a> -->
+<li><a href='/logbook/index.php?page=calendar&month=0'>Logs</a>
     <ul>
     <?php
     # Populates the 'Logs' tab with the appropriate logbook titles and table names
