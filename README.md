@@ -85,3 +85,7 @@ Contact whomever your server administrator is
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Help
+
+If you have any problems, questions, bug reports, or anything of the sort, please don't hesitate to e-mail me at Javier.A.King@Gmail.com !
