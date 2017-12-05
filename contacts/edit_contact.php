@@ -2,10 +2,6 @@
 <head>
 <title>Edit Contact</title>
 <link rel="stylesheet" href="../common/style.css">
-<?php
-#include "../common/navigation.html";
-#include "../common/info.inc";
-?>
 </div>
 </head>
 
@@ -26,24 +22,29 @@ $contact_info = $query->fetch(PDO::FETCH_ASSOC);
 <h1>Edit Contact</h1>
 
 <table border=1 frame=1 cellpadding=1 cellspacing=2 width=33%>
-<tr><td><b>Current</b> <td><b>Change To</b>
+<tr><td><b>Current</b> <td><b>Value</b></td><td><b>Change To</b>
 
 <tr>
 <td><?php echo $contact_info["name"]; ?>
-<td>    <form name="name_change" style="display:inline;" action = edit_process.php method="POST">
-        <input type="text" name="name_change"> : Name
+<td>    Name: 
+<td>    <form name="name_change" style="display:inline;" action = /logbook/index.php?page=contact_action method="POST">
+        <input type="text" name="name_change">
 
 <tr><td><?php echo $contact_info["email"]; ?>
-<td>    <input type="text" name="email_change"> : E-Mail
+<td>    E-Mail #1: 
+<td>    <input type="text" name="email_change">
 
 <tr><td><?php echo $contact_info["email2"]; ?>
-<td>    <input type="text" name="email2_change"> : E-Mail #2
+<td>    E-Mail #2:
+<td>    <input type="text" name="email2_change">
 
 <tr><td><?php echo $contact_info["phone"]; ?>
-<td>    <input type="text" name="phone_change"> : Phone
+<td>    Phone #1:
+<td>    <input type="text" name="phone_change">
 
 <tr><td><?php echo $contact_info["phone2"]; ?>
-<td>    <input type="text" name="phone2_change"> : Phone #2
+<td>    Phone #2:
+<td>    <input type="text" name="phone2_change">
 </table><br>
         <input type="hidden" name="name_id_ref" value= <?php echo $_GET["name_id"]; ?> >
         <button type="submit">Submit</button>

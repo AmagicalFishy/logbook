@@ -1,8 +1,6 @@
 <html>
 <body>
 <?php
-include "../common/info.inc";
-
 // SQL connection, drawing from things the user inputs into the forms
 $connection = new PDO($dbinfo, $username, $password);
 $add_user = $_POST["add_user"];
@@ -22,7 +20,7 @@ if (!empty($_POST["entered_name"]) == 1) {
     }
 }
 
-header("Location: contacts.php");
+header("Location: /logbook/index.php?page=contacts");
 ?>
 </body>
 </html>

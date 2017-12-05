@@ -27,7 +27,7 @@ try { $query->execute(); }
 catch (PDOEXception $E) { echo $e->getMessage(); }
 
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-    echo "<tr><td><a href=edit_contact.php?name_id=" .$row["name_id"]. ">" .$row["name"]. 
+    echo "<tr><td><a href=/logbook/index.php?page=edit_contact&name_id=" .$row["name_id"]. ">" .$row["name"]. 
     "<td>" .$row["email"]. "<td>" .$row["email2"]. "<td>" .$row["phone"]. "<td>" .$row["phone2"];
     }
 ?>
@@ -35,8 +35,8 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 </table>
 
 <!--Add/Delete Form-->
-<form name="adduser" style="display:inline;" action=action_process.php method="POST"><br>
-    Add/Delete User <input type="text" name="entered_name">
+<form name="adduser" style="display:inline;" action=/logbook/index.php?page=add_contact method="POST"><br>
+    Add/Delete Contact <input type="text" name="entered_name">
     Add <input type="radio" name="add_user" value=1 checked='checked'>
     Remove <input type="radio" name="add_user" value=0>
 <input type="submit" value="Submit">

@@ -39,7 +39,7 @@ for ($i = 1; $i <= 5; $i++) {
         }
 }
 
-header("Location: contacts.php");
+header("Location: /logbook/index.php?page=contacts");
 ?>
 </body>
 </html>
