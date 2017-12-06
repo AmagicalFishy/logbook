@@ -137,7 +137,9 @@ p {
 }
 
 #calendar_days td{
+    min-width: 150px;
     width: 150px;
+    table-layout: fixed;
 }
 
 #calendar td{

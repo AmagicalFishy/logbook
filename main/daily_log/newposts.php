@@ -1,5 +1,4 @@
 <?php
-include "../../common/info.inc";
 
 $logbook = $_GET["log"];
 $connection = new PDO($dbinfo, $username, $password);
@@ -42,7 +41,7 @@ if (!EMPTY($_POST["crossout_entry_number"]) == false){
             }
             else{
                 array_push($filenames, $file["name"]);
-                move_uploaded_file($file["tmp_name"], "uploads/".$_GET["log"]."/".$file["name"]);
+                move_uploaded_file($file["tmp_name"], __DIR__ . "/uploads/".$_GET["log"]."/".$file["name"]);
             }
         }
     }
@@ -81,6 +80,6 @@ else {
 <script>
 var logname = "<?php echo $_GET["log"]; ?>";
 var timestamp = <?php echo json_encode($big_timestamp); ?>;
-window.location.replace("viewposts.php?log=" + logname + "&begdate=" + timestamp + "&endate=" + timestamp
+window.location.replace("/logbook/index.php?page=posts&log=" + logname + "&begdate=" + timestamp + "&endate=" + timestamp
     + "&filters=Calendar");
 </script>

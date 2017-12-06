@@ -15,7 +15,7 @@ In Arch, the directory would be ```/srv/http```
 Must have LAMP (Linux, Apache2, MySQL [MariaDB], PHP) installed and some extra packages, depending on your distro. In Ubuntu 16, one would:
 
 ```
-sudo apt-get install apache2 mysql-server php libapache-mod-php sqlite php-sqlite3 php7.0-mysql
+sudo apt-get install apache2 mysql-server php libapache-mod-php sqlite php-sqlite3 php7.0-mysql php-gd
 ```
 When installing MySQL/MariaDB, you'll probably be asked to create a root user for the database. Make sure to remember whatever password you set up.
 
@@ -27,6 +27,9 @@ First, change the ``php.ini`` file to uncomment the lines:
 ``extension=pdo_sqlite.so``
 
 ``extension=mysqli.so``
+
+``extension=gd.so``
+
 
 On Ubuntu, this is located in ``/etc/php/7.0/apache2/php.ini``
 On Arch, it is located in ``/etc/php/php.ini``

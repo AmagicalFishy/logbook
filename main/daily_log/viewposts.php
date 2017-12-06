@@ -1,6 +1,4 @@
 <!-- Session Starter & DB Info  -->
-<?php 
-include "../../common/info.inc"; ?>
 
 <html>
 <!--Javascript functions to show additional uploads, to 
@@ -39,7 +37,6 @@ function file_duplicate(name){
 <link rel="stylesheet" href="../../common/style.css">
 
 <?php 
-include "../../common/navigation.php";
 
 #Alerts user if file uploaded had duplicate title
 echo "<center><p id='file_duplicate' name='file_duplicate'></p></center>";
@@ -63,11 +60,12 @@ else{
 echo "<center><div id='daylog_title'>";
 #Backward Arrow
 echo "<form method='GET'>";
+echo "<input type='hidden' name='page' value='posts'>";
 echo "<input type='hidden' name='filters' value='Calendar'>";
 echo "<input type='hidden' name='begdate' value=$backward_arrow . '00:00:00'>";
 echo "<input type='hidden' name='endate' value=$backward_arrow . '23:59:59'>";
 echo "<input type='hidden' name='log' value=" . $_GET['log'] . ">";
-echo "<input type='image' src='../arrow_left.gif' alt='Submit'>";
+echo "<input type='image' src='/logbook/common/images/arrow_left.gif' alt='Submit'>";
 echo "</form>";
 
 $query = $connection->prepare('SELECT title FROM logbooks WHERE table_name = :title');
@@ -78,11 +76,12 @@ echo "<font size='6.5'> " . $logbook_title['title'] . " </font>";
 
 #Forward Arrow
 echo "<form method='GET'>";
+echo "<input type='hidden' name='page' value='posts'>";
 echo "<input type='hidden' name='filters' value='Calendar'>";
 echo "<input type='hidden' name='begdate' value=$forward_arrow . '00:00:00'>";
 echo "<input type='hidden' name='endate' value=$forward_arrow . '23:59:59'>";
 echo "<input type='hidden' name='log' value=" . $_GET['log'] . ">";
-echo "<input type='image' src='../arrow_right.gif'>";
+echo "<input type='image' src='/logbook/common/images/arrow_right.gif'>";
 echo "</form>";
 echo "</div>";
 
@@ -128,7 +127,7 @@ if ($filters == "Search"){
 
 elseif ($filters == 'Calendar'){
     if (strtotime($_GET["begdate"]) == strtotime(date("Y-m-d"))){
-        $date = "Today, " . date("Y-m-d");
+        $date = "Today, " . date("M. d, Y");
     }
     else{
         $date = date("M. d, Y", strtotime($_GET["begdate"]));
@@ -195,7 +194,7 @@ Message<font color="red">*</font>
 <br>
 
 <div id="info_input">
-<form id="newpostform" action=<?php echo "newposts.php?log=". $_GET["log"]; ?> method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+<form id="newpostform" action=<?php echo "/logbook/index.php?page=new_post&log=" . $_GET["log"]; ?> method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 <table id="forms_table">
 <tr>
 <td>Name <font color="red">*</font> <input type="text" name="poster_name" required>
@@ -223,14 +222,14 @@ Message<font color="red">*</font>
 <tr>
 <td><br><font color="red">*Required</font>
 <td>
-<td>&nbsp &nbsp &nbsp <input type="submit" value="Submit"><br><font size="3" color="red">All posts are final.</font>
+<td>&nbsp &nbsp &nbsp <input type="submit" value="Submit" action=<?php $_SERVER['REQUEST_URI'] ?> ><br><font size="3" color="red">All posts are final.</font>
 </table>
 </div>
 <HR width=75%>
 </form>
 
 <div id="info_input">
-<form id="crossout" action=<?php echo "newposts.php?log=". $_GET["log"]; ?> method ="POST">
+<form id="crossout" action=<?php echo "/logbook/index.php?page=new_post&log=". $_GET["log"]; ?> method ="POST">
 <table>
 <tr>
 <td>Cross Out Entry: <input type="text" placeholder="Entry #" name="crossout_entry_number" size=9>
@@ -241,7 +240,7 @@ Message<font color="red">*</font>
 </div>
 <br>
 
-<?php include "../search_filters.php" ?>
+<?php include __DIR__ . "/../search_filters.php" ?>
 
 </body>
 

@@ -62,15 +62,16 @@ while ($row = $get_posts->fetch(PDO::FETCH_ASSOC)){
     if (ISSET($row["filenames"]) == True){
         echo "<br><br>Attachments: ";
         $filenames = unserialize($row["filenames"]); 
-
         #Displays a text-link or a thumbnail 
         foreach ($filenames as $filename){
-            $fileloc = "uploads/" . $_GET["log"] ."/". $filename;
-            if (@exif_imagetype($fileloc) != False){
-                echo "<a href = '" .$fileloc. "'> <img src='" .$fileloc. "' height='150' width='250'></a>";
+            $is_image = exif_imagetype(__DIR__ . "/uploads/" . $_GET["log"] . "/" . $filename);
+            $file_loc = '/logbook/main/daily_log/uploads/' . $_GET['log'] . '/' . $filename;
+
+            if ($is_image){
+                echo "<a href = '" . $file_loc . "'> <img src='" . $file_loc . "' height='150' width='250'></a>";
             }
-            elseif (@exif_imagetype($fileloc) == False){
-                echo "<a href='" .$fileloc. "'>" .$filename. "</a> &nbsp";
+            else {
+                echo "<a href='" . $file_loc . "'>" .$filename. "</a> &nbsp";
             }
         }
     }
